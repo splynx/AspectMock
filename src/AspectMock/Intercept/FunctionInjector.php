@@ -64,9 +64,10 @@ EOF;
             throw new Exception('reflection api changed. adjust code.');
         }
 
-        if ($internal && $parameter->isOptional()) {
-            $text .= "=NULL";
-        }
+// Ignored due update to PHP8.1 - PHP auto added `null`. Like this: `function exec(string $p0, &$p1 = null=NULL, &$p2 = null=NULL) {`
+//        if ($internal && $parameter->isOptional()) {
+//            $text .= "=NULL";
+//        }
 
         return $text;
     }
